@@ -11,6 +11,6 @@ export default async function getTicket(id) {
 		return response.json()
 	} catch (error) {
 		console.error(error)
-		return []
+		return undefined
 	}
 }
