@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export default async function ticketList() {
+	await new Promise(resolve => setTimeout(resolve, 1000))
 	const tickets = await getTickets()
 
 	if (!tickets) notFound()

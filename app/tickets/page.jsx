@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import TicketList from './TicketList'
+import Loading from '../loading'
 
 const page = () => {
 	return (
 		<main>
 			tickets page
-			<TicketList />
+			<Suspense fallback={<Loading />}>
+				<TicketList />
+			</Suspense>
 		</main>
 	)
 }
