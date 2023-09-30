@@ -1,4 +1,5 @@
 import getTicket from '../../utils/getTicket'
+import { notFound } from 'next/navigation'
 
 export async function getStaticParams() {
 	const tickets = await getTickets()
@@ -10,6 +11,8 @@ export async function getStaticParams() {
 
 export default async function page({ params }) {
 	const post = await getTicket(params.id)
+
+	if (!post) notFound()
 
 	return (
 		<main>
